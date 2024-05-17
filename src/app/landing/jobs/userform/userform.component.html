@@ -1,0 +1,149 @@
+<!-- to work with template form you need to import formsmodule in appsmodule -->
+
+
+
+<div class="container">
+    <div class="row" style="margin-top: 50px;margin-left:100px ;">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">Enter your Details below
+                </div>
+                <div class="card-body">
+                    <form  
+                    #myform="ngForm" 
+                    action=""
+                    method="post"
+                    enctype="multipart/form-data"
+                    class="form-horizontal">
+
+                    <div class="row feildstyle">
+                     
+                            <div class="col-md-3"> <label class="form-label"  for="firstname">Name</label></div>
+                            <div class="col-md-9">
+                                <input    class="form-control" type="text" name="firstname" #firstname="ngModel" [(ngModel)]="userobj.firstname" minlength="3" required>
+                                <div class="text-danger" *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                                    <span *ngIf="firstname.errors?.['required']">required </span>
+                                    <span *ngIf="firstname.errors?.['minlength']">3 required </span>   
+                                </div>
+                            </div>
+    
+               
+                       
+                    </div>
+
+                    <div class="row feildstyle" >
+                        <div class="col-md-3"> <label class="form-label"  for="email">email</label></div>
+                         <div class="col-md-9">
+                             <input class="form-control" type="text" name="email" #email="ngModel" [(ngModel)]="userobj.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                             <div class="text-danger" *ngIf="email.invalid && (email.touched || email.dirty)">
+                                 <span *ngIf="email.errors?.['required']">required </span>
+                                 <span *ngIf="email.errors?.['pattern']">email is not proper</span>   
+                             </div>
+                         </div>
+ 
+                     </div>
+
+                     
+                    <div class="row feildstyle" >
+                        <div class="col-md-3"> <label class="form-label"  for="phonenumber">phonenumber</label></div>
+                         <div class="col-md-9">
+                             <input class="form-control" type="text" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="userobj.phonenumber" minlength="10" required min="10">
+                             <div class="text-danger" *ngIf="phonenumber.invalid && (phonenumber.touched || phonenumber.dirty)">
+                                 <span *ngIf="phonenumber.errors?.['required']">required </span>
+                                 <span *ngIf="phonenumber.errors?.['minlength']">10 required </span> 
+                             </div>
+                         </div>
+ 
+                     </div>
+
+                     <div class="row feildstyle" >
+                        <div class="col-md-3"> <label class="form-label"  for="experience">total experience</label></div>
+                         <div class="col-md-9">
+                             <input class="form-control" type="text" name="experience" #experience="ngModel" [(ngModel)]="userobj.experience"  required>
+                             <div class="text-danger" *ngIf="experience.invalid && (experience.touched || experience.dirty)">
+                                 <span *ngIf="experience.errors?.['required']">required </span>
+                                  
+                             </div>
+                         </div>
+ 
+                     </div>  
+            <div class="row feildstyle">
+                <div class="col-md-3">  <label class="form-label" for="file-input"
+                    >Upload resume</label
+                  ></div>
+
+               
+                <div class="col-md-9">
+                    <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
+                    <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+                </div>
+              </div>
+
+                   
+
+
+                 
+                     <div class="row feildstyle">
+                        <button type="button" class="btn btn-success" [disabled]="!myform.valid" (click)="onSubmit(userobj)" style="width: 158px;margin-left: 343px;">submit</button>
+
+                     </div>
+
+
+
+
+
+
+
+
+                    </form>
+
+                    
+
+                </div>
+
+
+              </div>
+            </div>
+
+
+    </div>
+
+</div>
+<!-- <div *ngIf="success">
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div> -->
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="width: 228px;">
+        <div class="modal-body">
+          <p>submitted successfully</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"  (click)="closeModal()" >ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

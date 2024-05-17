@@ -1,0 +1,78 @@
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" style="background-color: #29a8df;">
+                <div class="row">
+                    
+                    <div class="col-md-3">
+                        <input class="form-control me-2" type="text" placeholder="job" [(ngModel)]="searchJob">
+                       
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control me-2" type="text" placeholder="location"  [(ngModel)]="searchLocation">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success" type="button" (click)="onSearch()">Search</button>
+
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-danger" type="button" (click)="clear()">clear</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4" *ngFor="let job of jobdetails">
+                    <div class="card">
+                        <div class="card-header">
+                     <h4><b>{{ job.job_role }}</b></h4>
+                        </div>
+                        <div class="card-body">
+                          <p><strong>Location:</strong> {{ job.location }}</p>
+                          <p><strong>Description:</strong> {{ job.job_description }}</p>
+                          <p><strong>Vacancy:</strong> {{ job.vacancy }}</p>
+                          <p><strong>Skills:</strong> {{ job.skills }}</p>
+                          <p><strong>Roles:</strong> {{ job.roles }}</p>
+                          <p><strong>Company:</strong> {{ job.company_description }}</p>
+                          <!-- <button type="button" class="btn btn-primary"><a href="/userform" style="color: white;"> 
+                           Apply
+                          </a></button> -->
+
+                          <button type="button" class="btn btn-primary" (click)="Applyjob(job)">Apply</button>
+
+                          <button type="button" class="btn btn-danger" (click)="saveJob(job)" style="margin-left: 44px;">Save</button>
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="width: 228px;">
+        <div class="modal-body">
+          <p>Job saved successfully</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"  (click)="closeModal()" >ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

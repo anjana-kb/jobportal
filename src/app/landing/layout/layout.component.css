@@ -1,0 +1,29 @@
+.active{
+    color: white !important;
+}
+
+.sidebar {
+    background: linear-gradient(#29a8df, #25357d);
+  
+    .sidebar-minimizer {
+      background-color: transparent;
+    }
+    .nav-link .nav-icon {
+      color: #ffffff;
+    }
+    .nav-link.active {
+      color: #fff;
+      background: #1656a5;
+    }
+  }
+  
+  .sidebar-minimized .sidebar .nav > .nav-dropdown > .nav-dropdown-items {
+    display: none;
+    max-height: 1000px;
+    background: #00408e;
+  }
+
+
+  li{
+    margin-bottom: 20px;
+}
