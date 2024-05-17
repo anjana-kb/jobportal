@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LandingService {
-  savedjobSubject = new Subject<any>();
+  appliedjobSubject = new Subject<any>();
   constructor( private httpClient: HttpClient,) { }
 
   public uploadfile(file: File) {

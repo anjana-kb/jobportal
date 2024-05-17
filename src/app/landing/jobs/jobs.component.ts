@@ -15,6 +15,7 @@ export class JobsComponent implements OnInit {
   searchLocation: string = '';
   savedJobs: jobdetails[] = [];
   appliedJobs:jobdetails[] = [];
+  numberofappliedjobs:number | undefined;
   constructor(private landingService:LandingService,  private router: Router,) { }
 
   ngOnInit(): void {
@@ -51,10 +52,16 @@ let jobnew= this.jobdetails.filter((job:any) =>
   Applyjob(job:any)
   {
     this.appliedJobs.push(job);
+  this.numberofappliedjobs= this.appliedJobs.length;
 
-    console.log("this.appliedJobs",this.appliedJobs);
-     sessionStorage.setItem('appliedJobs', JSON.stringify(this.appliedJobs));
+    console.log("this.appliedJobs.length",this.appliedJobs.length);
+   sessionStorage.setItem('appliedJobs', JSON.stringify(this.appliedJobs));
+   sessionStorage.setItem("numberofappliedjobs", this.numberofappliedjobs.toString());
+
+    //  this.landingService.appliedjobSubject.next(this.numberofappliedjobs);
+    //  this.landingService.appliedjobSubject.next(JSON.stringify(this.appliedJobs))
      const returnUrl = '/userform';
+
      this.router.navigateByUrl(returnUrl);
   }
   clear(){

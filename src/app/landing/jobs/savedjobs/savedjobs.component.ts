@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from '../../landing.service';
+import { jobdetails } from '../../jobmodels/jobmodel';
 // import { ToastrService } from "ngx-toastr";
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +12,8 @@ import { LandingService } from '../../landing.service';
 })
 export class SavedjobsComponent implements OnInit {
   jobdetails:any;
-  constructor(private landingService:LandingService) { }
+  appliedJobs:jobdetails[] = [];
+  constructor(private landingService:LandingService,private router: Router) { }
 
   ngOnInit(): void {
     // this.landingService.savedjobSubject.subscribe((resp)=>{
@@ -23,5 +26,13 @@ export class SavedjobsComponent implements OnInit {
 
     
   }
+  Applyjob(job:any)
+  {
+    this.appliedJobs.push(job);
 
+    console.log("this.appliedJobs",this.appliedJobs);
+     sessionStorage.setItem('appliedJobs', JSON.stringify(this.appliedJobs));
+     const returnUrl = '/userform';
+     this.router.navigateByUrl(returnUrl);
+  }
 };

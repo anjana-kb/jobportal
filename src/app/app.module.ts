@@ -14,6 +14,7 @@ import { UserformComponent } from './landing/jobs/userform/userform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppliedjobsComponent } from './landing/jobs/appliedjobs/appliedjobs.component';
 import { ProfileComponent } from './landing/jobs/profile/profile.component';
+import { NotificationsComponent } from './landing/jobs/notifications/notifications.component';
 // import { MatDialogModule } from '@angular/material/dialog';
 //import {MatDialogModule}  from '@angular/material/dialog'
 // import { MaterialModule } from '@angular/MaterialModule';
@@ -27,7 +28,8 @@ import { ProfileComponent } from './landing/jobs/profile/profile.component';
     SavedjobsComponent,
     UserformComponent,
     AppliedjobsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

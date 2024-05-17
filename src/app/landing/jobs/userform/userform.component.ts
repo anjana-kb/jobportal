@@ -20,11 +20,12 @@ export class UserformComponent implements OnInit {
     experience:''
 
   }
-  
+
   
   constructor(private landingservice:LandingService,  private router: Router,) { }
 
   ngOnInit(): void {
+  
   }
   onFilechange(event: any) {
     console.log(event.target.files[0])
@@ -42,10 +43,14 @@ export class UserformComponent implements OnInit {
   }
 
   onSubmit(userobj: any){
-    console.log("userobj",userobj);
- 
-    
+    // console.log("userobj",userobj);
+    // this.landingservice.appliedjobSubject.subscribe((resp)=>{
+    //   console.log("resp,",resp);
+      
+    //   sessionStorage.setItem('appliedJobs', JSON.stringify(resp));
+    // })
     this.openModal();
+    
   }
 
   openModal() {

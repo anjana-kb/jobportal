@@ -7,6 +7,7 @@ import { SavedjobsComponent } from './landing/jobs/savedjobs/savedjobs.component
 import { UserformComponent } from './landing/jobs/userform/userform.component';
 import { AppliedjobsComponent } from './landing/jobs/appliedjobs/appliedjobs.component';
 import { ProfileComponent } from './landing/jobs/profile/profile.component';
+import { NotificationsComponent } from './landing/jobs/notifications/notifications.component';
 const routes: Routes = [
   {
     path:'',
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path:"profile",
         component:ProfileComponent
+      },
+      {
+        path:"notifications",
+        component:NotificationsComponent
       }
 
 
